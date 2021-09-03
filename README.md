@@ -20,6 +20,33 @@ distribute app to pgyer by API V2
 
 Check out the [example `Fastfile`](fastlane/Fastfile) to see how to use this plugin. Try it by cloning the repo, running `fastlane install_plugins` and `bundle exec fastlane test`.
 
+Just specify the `api_key` and `user_key` associated with your pgyer account.
+
+```
+lane :beta do
+  gym
+  pgyer_upload_v2(api_key: "7f15xxxxxxxxxxxxxxxxxx141")
+end
+```
+
+You can also set a password to protect the App from being downloaded publicly:
+
+```
+lane :beta do
+  gym
+  pgyer_upload_v2(api_key: "7f15xxxxxxxxxxxxxxxxxx141",  buildPassword: "123456", buildUpdateDescription: "2")
+end
+```
+
+Set a version update description for App:
+
+```
+lane :beta do
+  gym
+  pgyer_upload_v2(api_key: "7f15xxxxxxxxxxxxxxxxxx141", buildUpdateDescription: "update by fastlane")
+end
+```
+
 **Note to author:** Please set up a sample project to make it easy for users to explore what your plugin does. Provide everything that is necessary to try out the plugin in this project (including a sample Xcode/Android project if necessary)
 
 ## Run tests for this plugin
